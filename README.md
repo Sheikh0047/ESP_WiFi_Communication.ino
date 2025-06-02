@@ -1,25 +1,53 @@
-# ESP WiFi Communication for Arduino
+# ESP WiFi Communication for Arduino (Optimized)
 
-This project handles WiFi connection and data transmission using an ESP module (ESP8266/ESP32) with Arduino.
+![ESP8266/ESP32](https://img.shields.io/badge/ESP-8266%2F32-blue)
+![Version](https://img.shields.io/badge/Version-1.2-green)
+![License](https://img.shields.io/badge/License-MIT-orange)
 
-## Features
-- WiFi connection management
-- HTTP GET requests to send sensor data
-- Timeout handling for robust communication
-- Debugging output via Serial Monitor
+Robust WiFi communication handler for ESP modules with enhanced AT command management and error handling.
 
-## Hardware Requirements
-- Arduino board
+## ✨ Optimized Features
+- ✅ **Reliable AT Command Handling** - Full response parsing with error detection
+- ✅ **Connection Verification** - Real-time WiFi and TCP status checks
+- ✅ **Automatic Resource Management** - Proper connection cleanup
+- ✅ **Configurable Timeouts** - Operation-specific timeout settings
+- ✅ **Buffer Protection** - Prevents serial buffer overflow
+- ✅ **Self-healing** - Automatic reconnection attempts
+
+## 📦 Hardware Requirements
+- Arduino board (Uno, Mega, etc.)
 - ESP8266 or ESP32 module
-- Sensors (optional for the example)
+- Sensors (for the example implementation)
+  - Gas sensor (analog)
+  - Temperature sensor (analog)
+  - Optional third sensor
 
-## Setup
-1. Update `ssid` and `password` in the sketch
-2. Set your server IP and port
-3. Connect ESP module to Arduino's Serial1
+## 🔌 Wiring Guide
+| ESP Module  | Arduino Connection |
+|-------------|--------------------|
+| TX          | RX1 (Serial1)      |
+| RX          | TX1 (Serial1)      |
+| GND         | GND                |
+| VCC         | 3.3V*              |
 
-## Wiring
-- ESP TX -> Arduino RX1
-- ESP RX -> Arduino TX1
-- ESP GND -> Arduino GND
-- ESP VCC -> 3.3V (check your module requirements)
+*Some ESP modules require 5V - check your module specifications
+
+## ⚙️ Configuration
+```cpp
+// Network credentials
+const char* ssid = "YourSSID";
+const char* password = "YourPassword";
+
+// Server details
+const char* server = "192.168.1.100"; // Your server IP
+const int port = 80; // Your server port
+
+// Timeout settings (ms)
+const unsigned long WIFI_TIMEOUT = 30000; // 30s WiFi timeout
+const unsigned long TCP_TIMEOUT = 10000;  // 10s TCP timeout
+
+## 📜 Version History
+| Version | Changes |
+|---------|---------|
+| 1.2 | Added connection verification, improved error handling, timeout management |
+| 1.1 | Initial release with basic functionality |
