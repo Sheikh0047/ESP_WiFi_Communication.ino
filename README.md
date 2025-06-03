@@ -1,4 +1,4 @@
-/*
+
  * ESP WiFi Communication Module  
  * Version: 2.1 (Stable Release)  
  * Author: Amir Saleh  
@@ -7,7 +7,7 @@
  * - Military-grade connection stability  
  * - Advanced error recovery  
  * - Enterprise security features  
- */
+
 
 # ESP WiFi Communication Module  
 ![ESP Module](https://example.com/esp-wifi.jpg)  
